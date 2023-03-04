@@ -8,6 +8,17 @@ public class User {
     public User() {
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                '}';
+    }
+
     public User(int id, String userName, String email, String gender, String dateOfBirth) {
         this.id = id;
         this.userName = userName;

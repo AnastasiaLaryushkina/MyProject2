@@ -4,6 +4,16 @@ public class Items {
     double price;
     int itemQuantity;
 
+    @Override
+    public String toString() {
+        return "Items{" +
+                "id=" + id +
+                ", itemsName='" + itemsName + '\'' +
+                ", price=" + price +
+                ", itemQuantity=" + itemQuantity +
+                '}';
+    }
+
     public Items() {
     }
 

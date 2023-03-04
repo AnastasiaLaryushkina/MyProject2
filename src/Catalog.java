@@ -5,6 +5,15 @@ public class Catalog {
     String section;
     ArrayList<Items> items;
 
+    @Override
+    public String toString() {
+        return "Catalog{" +
+                "id=" + id +
+                ", section='" + section + '\'' +
+                ", items=" + items +
+                '}';
+    }
+
     public Catalog() {
     }
 
