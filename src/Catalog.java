@@ -1,27 +1,19 @@
 import java.util.ArrayList;
 
 public class Catalog {
-    int id;
-    String section;
-    ArrayList<Items> items;
-
-    @Override
-    public String toString() {
-        return "Catalog{" +
-                "id=" + id +
-                ", section='" + section + '\'' +
-                ", items=" + items +
-                '}';
-    }
+    private int id;
+    private String section;
+    private DataStorage items;
 
     public Catalog() {
     }
 
-    public Catalog(int id, String section, ArrayList<Items> items) {
+    public Catalog(int id, String section, DataStorage items) {
         this.id = id;
         this.section = section;
         this.items = items;
     }
+
 
     public int getId() {
         return id;
@@ -39,12 +31,22 @@ public class Catalog {
         this.section = section;
     }
 
-    public ArrayList<Items> getItems() {
+    public DataStorage getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Items> items) {
+    public void setItems(DataStorage items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "Catalog{" +
+                "id=" + id +
+                ", section='" + section + '\'' +
+                ", items=" + items +
+                '}';
+    }
 }
+
 

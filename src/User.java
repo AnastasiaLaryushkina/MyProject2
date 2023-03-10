@@ -1,22 +1,20 @@
 public class User {
-    int id;
-    String userName;
-    String email;
-    String gender;
-    String dateOfBirth;
+    private int id;
+    private String userName;
+    private String email;
+    private String gender;
+    private String dateOfBirth;
+    private Integer passport;
 
     public User() {
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", email='" + email + '\'' +
-                ", gender='" + gender + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                '}';
+    public User(String userName, String email, String gender, String dateOfBirth, Integer passport) {
+        this.userName = userName;
+        this.email = email;
+        this.gender = gender;
+        this.dateOfBirth = dateOfBirth;
+        this.passport = passport;
     }
 
     public User(int id, String userName, String email, String gender, String dateOfBirth) {
@@ -25,6 +23,10 @@ public class User {
         this.email = email;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Integer getPassport() {
+        return passport;
     }
 
     public int getId() {
@@ -66,6 +68,17 @@ public class User {
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
-}
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", passport=" + passport +
+                '}';
+    }
+}
 

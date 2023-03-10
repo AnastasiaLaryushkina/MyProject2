@@ -1,18 +1,8 @@
 public class Items {
-    int id;
-    String itemsName;
-    double price;
-    int itemQuantity;
-
-    @Override
-    public String toString() {
-        return "Items{" +
-                "id=" + id +
-                ", itemsName='" + itemsName + '\'' +
-                ", price=" + price +
-                ", itemQuantity=" + itemQuantity +
-                '}';
-    }
+    private int id;
+    private String itemsName;
+    private double price;
+    private int itemQuantity;
 
     public Items() {
     }
@@ -54,5 +44,15 @@ public class Items {
 
     public void setItemQuantity(int itemQuantity) {
         this.itemQuantity = itemQuantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Items{" +
+                "id=" + id +
+                ", itemsName='" + itemsName + '\'' +
+                ", price=" + price +
+                ", itemQuantity=" + itemQuantity +
+                '}';
     }
 }
