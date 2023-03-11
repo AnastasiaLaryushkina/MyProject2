@@ -11,6 +11,54 @@ public class DataStorage {
     private ArrayList<Items> clothesItems = new ArrayList<>();
     private ArrayList<Items> tourismItems = new ArrayList<>();
 
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+
+    public ArrayList<Items> getWinterItems() {
+        return winterItems;
+    }
+
+    public void setWinterItems(ArrayList<Items> winterItems) {
+        this.winterItems = winterItems;
+    }
+
+    public ArrayList<Items> getSummerItems() {
+        return summerItems;
+    }
+
+    public void setSummerItems(ArrayList<Items> summerItems) {
+        this.summerItems = summerItems;
+    }
+
+    public ArrayList<Items> getSwimmingItems() {
+        return swimmingItems;
+    }
+
+    public void setSwimmingItems(ArrayList<Items> swimmingItems) {
+        this.swimmingItems = swimmingItems;
+    }
+
+    public ArrayList<Items> getClothesItems() {
+        return clothesItems;
+    }
+
+    public void setClothesItems(ArrayList<Items> clothesItems) {
+        this.clothesItems = clothesItems;
+    }
+
+    public ArrayList<Items> getTourismItems() {
+        return tourismItems;
+    }
+
+    public void setTourismItems(ArrayList<Items> tourismItems) {
+        this.tourismItems = tourismItems;
+    }
+
     public void getAllUsers() {
         for (int i = 0; i < users.size(); i++) {
             System.out.println((users.get(i)));
@@ -22,7 +70,7 @@ public class DataStorage {
                 .forEach(user -> System.out.println(user));
     }
 
-    public void getUserById(int id) {
+    public void printUserById(int id) {
         boolean found = false;
         for (int i = 0; i < users.size(); i++) {
             if ((users.get(i).getId()) == id) {
@@ -36,7 +84,7 @@ public class DataStorage {
         }
     }
 
-    public User getAndReturnUserById(int id) {
+    public User getUserById(int id) {
         for (User user : users) {
             if (user.getId() == id) {
                 return user;
@@ -45,7 +93,7 @@ public class DataStorage {
         return null;
     }
 
-    public Items getAndReturnSwimmingItemById(int id) {
+    public Items getSwimmingItemById(int id) {
         for (Items item : swimmingItems) {
             if (item.getId() == id) {
                 return item;
@@ -54,7 +102,7 @@ public class DataStorage {
         return null;
     }
 
-    public Items getAndReturnWinterItemById(int id) {
+    public Items getWinterItemById(int id) {
         for (Items item : winterItems) {
             if (item.getId() == id) {
                 return item;
@@ -63,7 +111,7 @@ public class DataStorage {
         return null;
     }
 
-    public Items getAndReturnSummerItemById(int id) {
+    public Items getSummerItemById(int id) {
         for (Items item : summerItems) {
             if (item.getId() == id) {
                 return item;
@@ -72,7 +120,7 @@ public class DataStorage {
         return null;
     }
 
-    public Items getAndReturnClothesItemById(int id) {
+    public Items getClothesItemById(int id) {
         for (Items item : clothesItems) {
             if (item.getId() == id) {
                 return item;
@@ -81,7 +129,7 @@ public class DataStorage {
         return null;
     }
 
-    public Items getAndReturnTourismItemById(int id) {
+    public Items getTourismItemById(int id) {
         for (Items item : tourismItems) {
             if (item.getId() == id) {
                 return item;

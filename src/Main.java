@@ -1,36 +1,25 @@
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
+        DataStorage dataStorage = new DataStorage();
         Initial init = new Initial();
-        init.initStart();
+        init.initStart(dataStorage);
 
-        DataStorage users = new DataStorage();
-        users.readUsersFromFile();
+        dataStorage.readUsersFromFile();
+        dataStorage.readUsersFromFile8();
+        dataStorage.readWinterItemsFromFile();
+        dataStorage.readSummerItemsFromFile();
+        dataStorage.readSwimmingItemsFromFile();
+        dataStorage.readClothesItemsFromFile();
+        dataStorage.readTourismItemsFromFile();
 
-        DataStorage users8 = new DataStorage();
-        users8.readUsersFromFile8();
-
-        DataStorage winterItems = new DataStorage();
-        winterItems.readWinterItemsFromFile();
-        Catalog catalog1 = new Catalog(001, "Зимние виды спорта", winterItems);
-
-        DataStorage summerItems = new DataStorage();
-        summerItems.readSummerItemsFromFile();
-        Catalog catalog2 = new Catalog(002, "Летние виды спорта", summerItems);
-
-        DataStorage swimmingItems = new DataStorage();
-        swimmingItems.readSwimmingItemsFromFile();
-        Catalog catalog3 = new Catalog(003, "Плавание", swimmingItems);
-
-        DataStorage clothesItems = new DataStorage();
-        clothesItems.readClothesItemsFromFile();
-        Catalog catalog4 = new Catalog(004, "Спортивная одежда", clothesItems);
-
-        DataStorage tourismItems = new DataStorage();
-        tourismItems.readTourismItemsFromFile();
-        Catalog catalog5 = new Catalog(005, "Туризм", tourismItems);
+        Catalog catalog1 = new Catalog(001, "Зимние виды спорта", dataStorage.getWinterItems());
+        Catalog catalog2 = new Catalog(002, "Летние виды спорта", dataStorage.getSummerItems());
+        Catalog catalog3 = new Catalog(003, "Плавание", dataStorage.getSwimmingItems());
+        Catalog catalog4 = new Catalog(004, "Спортивная одежда", dataStorage.getClothesItems());
+        Catalog catalog5 = new Catalog(005, "Туризм", dataStorage.getTourismItems());
 
         System.out.println(" ");
 
@@ -42,49 +31,49 @@ public class Main {
 
         System.out.println("_____________________");
 
-        users.getAllUsers();
+        dataStorage.getAllUsers();
         System.out.println("_____________________");
 
-        users.getUserById(10);
+        dataStorage.printUserById(10);
         System.out.println("_____________________");
 
-        users.getUserById(100);
+        dataStorage.printUserById(100);
         System.out.println("_____________________");
 
-        users.addUser(new User(100, "Vova", "Pupkin", "v@mail.ru", "20.20.2020"));
+        dataStorage.addUser(new User(100, "Vova", "Pupkin", "v@mail.ru", "20.20.2020"));
         System.out.println("_____________________");
-        users.getAllUsers();
+        dataStorage.getAllUsers();
 
-        users.deleteUserById(100);
+        dataStorage.deleteUserById(100);
         System.out.println("_____________________");
 
-        users.deleteUserById(100);
+        dataStorage.deleteUserById(100);
         System.out.println("_____________________");
-        users.getAllUsers();
+        dataStorage.getAllUsers();
 
         System.out.println();
         System.out.println("_________users from task 8____________");
-        users8.getAllUsersHashMap();
+        dataStorage.getAllUsersHashMap();
 
-        System.out.println(users.getAndReturnUserById(11).getUserName() + " положил в корзину товар с id = "
-                + swimmingItems.getAndReturnSwimmingItemById(38).getId() + ", \""
-                + swimmingItems.getAndReturnSwimmingItemById(38).getItemsName()
+        System.out.println(dataStorage.getUserById(11).getUserName() + " положил в корзину товар с id = "
+                + dataStorage.getSwimmingItemById(38).getId() + ", \""
+                + dataStorage.getSwimmingItemById(38).getItemsName()
                 + "\"" + " из раздела каталога id =" + " " + catalog3.getId() + " \"" + catalog3.getSection() + "\"");
-        System.out.println(users.getAndReturnUserById(22).getUserName() + " положил в корзину товар с id = "
-                + winterItems.getAndReturnWinterItemById(2).getId() + ", \""
-                + winterItems.getAndReturnWinterItemById(2).getItemsName()
+        System.out.println(dataStorage.getUserById(22).getUserName() + " положил в корзину товар с id = "
+                + dataStorage.getWinterItemById(2).getId() + ", \""
+                + dataStorage.getWinterItemById(2).getItemsName()
                 + "\"" + " из раздела каталога id =" + " " + catalog1.getId() + " \"" + catalog1.getSection() + "\"");
-        System.out.println(users.getAndReturnUserById(33).getUserName() + " положил в корзину товар с id = "
-                + summerItems.getAndReturnSummerItemById(23).getId() + ", \""
-                + summerItems.getAndReturnSummerItemById(23).getItemsName()
+        System.out.println(dataStorage.getUserById(33).getUserName() + " положил в корзину товар с id = "
+                + dataStorage.getSummerItemById(23).getId() + ", \""
+                + dataStorage.getSummerItemById(23).getItemsName()
                 + "\"" + " из раздела каталога id =" + " " + catalog2.getId() + " \"" + catalog2.getSection() + "\"");
-        System.out.println(users.getAndReturnUserById(44).getUserName() + " положил в корзину товар с id = "
-                + clothesItems.getAndReturnClothesItemById(58).getId() + ", \""
-                + clothesItems.getAndReturnClothesItemById(58).getItemsName()
+        System.out.println(dataStorage.getUserById(44).getUserName() + " положил в корзину товар с id = "
+                + dataStorage.getClothesItemById(58).getId() + ", \""
+                + dataStorage.getClothesItemById(58).getItemsName()
                 + "\"" + " из раздела каталога id =" + " " + catalog4.getId() + " \"" + catalog4.getSection() + "\"");
-        System.out.println(users.getAndReturnUserById(55).getUserName() + " положил в корзину товар с id = "
-                + tourismItems.getAndReturnTourismItemById(74).getId() + ", \""
-                + tourismItems.getAndReturnTourismItemById(74).getItemsName()
+        System.out.println(dataStorage.getUserById(55).getUserName() + " положил в корзину товар с id = "
+                + dataStorage.getTourismItemById(74).getId() + ", \""
+                + dataStorage.getTourismItemById(74).getItemsName()
                 + "\"" + " из раздела каталога id =" + " " + catalog5.getId() + " \"" + catalog5.getSection() + "\"");;
 
     }

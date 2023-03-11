@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class Catalog {
     private int id;
     private String section;
-    private DataStorage items;
+    private ArrayList<Items> items;
 
     public Catalog() {
     }
 
-    public Catalog(int id, String section, DataStorage items) {
+    public Catalog(int id, String section, ArrayList<Items> items) {
         this.id = id;
         this.section = section;
         this.items = items;
@@ -31,11 +31,11 @@ public class Catalog {
         this.section = section;
     }
 
-    public DataStorage getItems() {
+    public ArrayList<Items> getItems() {
         return items;
     }
 
-    public void setItems(DataStorage items) {
+    public void setItems(ArrayList<Items> items) {
         this.items = items;
     }
 

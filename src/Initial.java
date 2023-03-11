@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Initial {
-    public void initStart() throws IOException {
+
+    public void initStart(DataStorage dataStorage) {
+
         ArrayList<User> usersArr = new ArrayList<>();
         usersArr.add(new User(11, "Anna Ivanova", "aivanova@gmail.com", "female", "01.01.1990"));
         usersArr.add(new User(22, "Maria Petrova", "mpetrova@gmail.com", "female", "02.02.1991"));
@@ -16,9 +18,6 @@ public class Initial {
         usersArr.add(new User(88, "Elena Kotova", "ekotova@gmail.com", "female", "08.08.1997"));
         usersArr.add(new User(99, "Andrey Semenov", "asemenov@gmail.com", "male", "09.09.1998"));
         usersArr.add(new User(10, "Irina Kovaleva", "ikovaleva@gmail.com", "female", "10.10.1999"));
-
-        DataStorage users = new DataStorage();
-        users.saveUsersToFile(usersArr);
 
         ArrayList<Items> winterSports = new ArrayList<>();
         winterSports.add(new Items(1, "Лыжи беговые взрослые", 1000.00, 15));
@@ -37,9 +36,6 @@ public class Initial {
         winterSports.add(new Items(14, "Ботинки горнолыжные", 2100.00, 18));
         winterSports.add(new Items(15, "Ботинки для сноуборда", 2100.00, 11));
 
-        DataStorage winterItems = new DataStorage();
-        winterItems.saveItemsToFile(winterSports, "winterItems");
-
         ArrayList<Items> summerSports = new ArrayList<>();
         summerSports.add(new Items(16, "Велосипед взрослый", 2000.00, 4));
         summerSports.add(new Items(17, "Велосипед детский", 1200.00, 13));
@@ -56,9 +52,6 @@ public class Initial {
         summerSports.add(new Items(28, "Квадроцикл детский", 6000.00, 1));
         summerSports.add(new Items(29, "Волейбольный мяч", 300.00, 16));
         summerSports.add(new Items(30, "Набор для стрельбы из лука", 700.00, 10));
-
-        DataStorage summerItems = new DataStorage();
-        summerItems.saveItemsToFile(summerSports, "summerItems");
 
         ArrayList<Items> swimmingSport = new ArrayList<>();
         swimmingSport.add(new Items(31, "Бассейн надувной", 5500.00, 2));
@@ -77,9 +70,6 @@ public class Initial {
         swimmingSport.add(new Items(44, "Надувной мяч", 300.00, 16));
         swimmingSport.add(new Items(45, "Спасательный круг", 700.00, 12));
 
-        DataStorage swimmingItems = new DataStorage();
-        swimmingItems.saveItemsToFile(swimmingSport, "swimmingItems");
-
         ArrayList<Items> clothes = new ArrayList<>();
         clothes.add(new Items(46, "Футболка женская", 700.00, 26));
         clothes.add(new Items(47, "Футболка мужская", 600.00, 14));
@@ -97,9 +87,6 @@ public class Initial {
         clothes.add(new Items(59, "Жилет", 1900.00, 1));
         clothes.add(new Items(60, "Толстовка женская", 1700.00, 16));
 
-        DataStorage clothesItems = new DataStorage();
-        clothesItems.saveItemsToFile(clothes, "clothesItems");
-
         ArrayList<Items> tourism = new ArrayList<>();
         tourism.add(new Items(61, "Палатка", 4700.00, 6));
         tourism.add(new Items(62, "Тент", 1600.00, 13));
@@ -116,9 +103,6 @@ public class Initial {
         tourism.add(new Items(73, "Набор для спортивной рыбалки", 3800.00, 3));
         tourism.add(new Items(74, "Матрас надувной", 1440.00, 21));
         tourism.add(new Items(75, "Набор для пикника", 2700.00, 5));
-
-        DataStorage tourismItems = new DataStorage();
-        tourismItems.saveItemsToFile(tourism, "tourismItems");
 
         HashMap<Integer, User> usersMap= new HashMap<>();
         User user1 = new User("Anna Ivanova", "aivanova@gmail.com", "female", "01.01.1990", 374561);
@@ -143,8 +127,13 @@ public class Initial {
         usersMap.put(user9.getPassport(), user9);
         usersMap.put(user10.getPassport(), user10);
 
-        DataStorage usersTask8 = new DataStorage();
-        usersTask8.saveUsersToFile8(usersMap);
+        dataStorage.saveUsersToFile(usersArr);
+        dataStorage.saveItemsToFile(winterSports, "winterItems");
+        dataStorage.saveItemsToFile(summerSports, "summerItems");
+        dataStorage.saveItemsToFile(swimmingSport, "swimmingItems");
+        dataStorage.saveItemsToFile(clothes, "clothesItems");
+        dataStorage.saveItemsToFile(tourism, "tourismItems");
+        dataStorage.saveUsersToFile8(usersMap);
 
     }
 }
